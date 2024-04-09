@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background: black;
+    position: fixed;
+}
+
+header.scrolled{
+    position: sticky;
+    background: white;
+}
+
+.logo{
+    width: 30%;
+    float: left;
+    line-height: 100px;
+    text-align: left;
+
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+nav{
+    width: 70%;
+    float: right;
+    line-height: 100px;
+    text-align: right;
+}
+
+nav a{
+    text-decoration: none;
+    font-family: 'Times New Roman';
+    letter-spacing: 4px;
+    color: brown;
+    padding: 36px 10px;
+    margin: 0 1px;
+}
+
+nav a:hover{
+    color: black;
+}
+
+
+.banner-area{
+    background-image: url(./assets/newbbrnplaceholder.mov);
+    background-size: cover;
+    background-position: center center;
+    top: 100px;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    
+}
+
+.banner-area::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.55;
+    z-index: -1;
+
+}
+
+.banner-area h2{
+    padding-top: 8%;
+    font-size: 80px;
+    color: white;
+}
+
+.content-area{
+    width: 100%;
+    height: 800px;
+    position: relative;
+    background: black;
+    top: 550px;
+
+}
+
+.content-area h2{
+    width: 100%;
+    font-size: 40px;
+    margin: 0;
+    padding-top: 30px;
+    letter-spacing: 4px;
+
+    color: brown;
+}
+.content-area p{
+    padding: 2% 0;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+}
+
+
+.center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center a{
+    color: brown;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.center a:hover{
+    color: black;
+}
+.wrapperex{
+  display: flex;
+  justify-content: center;
+
+  
+}
+
+.wrapperex i{
+    text-decoration: none;
+    padding: 20px;
+    margin: 10px;
+    color: brown; 
+}
+
+.wrapperex a:hover{
+    color: brown;
+    transition: 0.5s;
+}
+
+.wrapperex a:hover i{
+    color: black;
+    transition: 0.5s;
+}
+
+
