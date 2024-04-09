@@ -1,9 +1,10 @@
-[
+{
+"artwork":[
     {
       "id": 1,
       "title": "The Starry Night",
       "artist": "Vincent Van Gogh",
-      "image_url": "https://example.com/starry-night.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2sQXmvsQVIyKx6epFj1pL0wl5WikTFi1QPb8dudCU3w&s",
       "description": "The Starry Night is one of Van Gogh's most famous masterpieces, known for its swirling clouds and bright stars.",
       "price": "$100,000",
       "copies_left": 5
@@ -12,7 +13,7 @@
       "id": 2,
       "title": "Guernica",
       "artist": "Pablo Picasso",
-      "image_url": "https://example.com/guernica.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/400px-PicassoGuernica.jpg",
       "description": "Guernica is a powerful anti-war painting created by Picasso during the Spanish Civil War.",
       "price": "$200,000",
       "copies_left": 3
@@ -21,7 +22,7 @@
       "id": 3,
       "title": "Mona Lisa",
       "artist": "Leonardo da Vinci",
-      "image_url": "https://example.com/mona-lisa.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKGcmciSy4FGjphPQWDgP6nnQdpqCYYMsSjWlDT2hv9A&s",
       "description": "The Mona Lisa is perhaps the most famous portrait in the world, known for its enigmatic smile.",
       "price": "$500,000,000",
       "copies_left": 1
@@ -30,7 +31,7 @@
       "id": 4,
       "title": "The Persistence of Memory",
       "artist": "Salvador Dali",
-      "image_url": "https://example.com/persistence-of-memory.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMgJU4nc_PKZMKC8h8zLkBZZctzbWMMQoY1GlYQRtHbw&s",
       "description": "This surrealist masterpiece features melting clocks draped over various objects.",
       "price": "$150,000",
       "copies_left": 2
@@ -39,7 +40,7 @@
       "id": 5,
       "title": "The Scream",
       "artist": "Edvard Munch",
-      "image_url": "https://example.com/the-scream.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjuJxlbD3-XHVFmagpqN5WYPJ9-oe9N0xf7OrHsonHg&s",
       "description": "The Scream depicts a figure with an agonized expression against a swirling sky.",
       "price": "$175,000",
       "copies_left": 4
@@ -48,7 +49,7 @@
       "id": 6,
       "title": "The Night Watch",
       "artist": "Rembrandt",
-      "image_url": "https://example.com/the-night-watch.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/1200px-The_Night_Watch_-_HD.jpg",
       "description": "The Night Watch is a famous group portrait by Rembrandt, known for its use of light and shadow.",
       "price": "$250,000",
       "copies_left": 3
@@ -57,7 +58,7 @@
       "id": 7,
       "title": "Les Demoiselles d'Avignon",
       "artist": "Pablo Picasso",
-      "image_url": "https://example.com/les-demoiselles-davignon.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4c/Les_Demoiselles_d%27Avignon.jpg",
       "description": "This groundbreaking painting by Picasso depicts five nude women in a brothel setting.",
       "price": "$300,000",
       "copies_left": 1
@@ -66,7 +67,7 @@
       "id": 8,
       "title": "The Last Supper",
       "artist": "Leonardo da Vinci",
-      "image_url": "https://example.com/the-last-supper.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Última_Cena_-_Da_Vinci_5.jpg",
       "description": "The Last Supper is a famous religious painting depicting the scene of Jesus' last meal with his disciples.",
       "price": "$400,000,000",
       "copies_left": 1
@@ -75,19 +76,20 @@
       "id": 9,
       "title": "Water Lilies",
       "artist": "Claude Monet",
-      "image_url": "https://example.com/water-lilies.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQq2jmPEpSeODjjkXBa7XXpNXr4a1-kAy9RQ&s",
       "description": "Water Lilies is a series of Impressionist paintings by Monet, capturing the beauty of his garden pond.",
       "price": "$125,000",
       "copies_left": 2
     },
     {
       "id": 10,
-      "title": "The Birth of Venus",
+      "title": "The Mystical Nativity",
       "artist": "Sandro Botticelli",
-      "image_url": "https://example.com/birth-of-venus.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Mystic_Nativity%2C_Sandro_Botticelli.jpg/640px-Mystic_Nativity%2C_Sandro_Botticelli.jpg",
       "description": "This iconic Renaissance painting depicts the goddess Venus emerging from the sea.",
       "price": "$300,000,000",
       "copies_left": 1
     }
-  ]
+]
+}
   
