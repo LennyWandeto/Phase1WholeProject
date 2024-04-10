@@ -3,7 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --primary-color: black;
+    --secondary-color: white;
+    --primary-colorsx: rgba(194, 188, 188, 0.244);
+    --secondary-colorsx: darkgrey;
 
+}
+
+.dark-theme{
+    --primary-color: white;
+    --secondary-color: black;
+    --primary-colorsx: darkgrey;
+    --secondary-colorsx: rgba(194, 188, 188, 0.244);
+}
 
 
 body{
@@ -19,8 +32,9 @@ body{
 header{
     width: 100%;
     height: 100px;
-    background: black;
+    background: var(--primary-color);
     position: fixed;
+    transition: background-color 0.5s ease-in-out
 }
 
 header.scrolled{
@@ -38,10 +52,11 @@ header.scrolled{
 
 .logo a{
     text-decoration: none;
-    color: white;
+    color: var(--secondary-color);
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     letter-spacing: 4px;
+    transition: color 0.5s ease-in-out
 }
 
 nav{
@@ -61,7 +76,8 @@ nav a{
 }
 
 nav a:hover{
-    color: black;
+    color: var(--secondary-color);
+    transition: color 0.5s ease-in-out;
 }
 
 
@@ -100,8 +116,9 @@ nav a:hover{
     width: 100%;
     height: 100%;
     position: relative;
-    background: black;
+    background: var(--primary-color);
     top: 550px;
+    transition: background-color 0.5s ease-in-out;
 
 }
 
@@ -118,7 +135,8 @@ nav a:hover{
     padding: 2% 0;
     line-height: 30px;
     text-align: center;
-    color: white;
+    color: var(--secondary-color);
+    transition: color 0.5s ease-in-out;
 }
 
 
@@ -168,4 +186,135 @@ nav a:hover{
     padding-bottom: 0%;
     margin: 0;
     list-style: none;
+}
+
+.art-properties{
+    width: 500px;
+    height: 500px;
+    margin: 0;
+    padding: 2px;;
+    
+}
+#art-description #art-price #copies-left{
+    padding: 0%;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    
+}
+.card-body{
+    width: 500px;
+    background-color:var(--primary-colorsx);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.card-body:hover{
+    transform: translateY(-20px)
+}
+
+.card-body img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content{
+    padding: 20px;
+}
+
+.card-content p{
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--secondary-color);
+}
+
+#buy-button{
+    display: inline-block;
+    left: 50%;
+    right: 200px;
+    padding: 8px 15px;
+    background-color: tomato;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 16px;
+    color: white;
+}
+#artPrice{
+    color: green;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: block;
+    background: grey;
+    border-radius: 200px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s
+}
+
+label:after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    background: linear-gradient(180deg, black, gray);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
+}
+input{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+input:checked + label{
+    background-color: white;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+}
+
+input:checked + label:after{
+    transform: translateX(55px);
+    background: linear-gradient(180deg, white, gray);
+}
+
+
+.sold-out{
+    background-color: gray !important;
+}
+
+.delete-button{
+    
+    display: inline-block;
+    flex-direction: column;
+    float: right;
+    padding: 2px 4px;
+    background-color: tomato;
+    text-decoration: none;
+    border-radius: 100px;
+    margin-top: 21px;
+    color: white;
+}
+
+.delete-button:hover{
+    background-color: red;
+    transition: 0.3s;
 }
