@@ -303,7 +303,7 @@ input:checked + label:after{
 
 .delete-button{
     
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     float: right;
     padding: 2px 4px;

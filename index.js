@@ -12,12 +12,19 @@ document.addEventListener("DOMContentLoaded", function(){
     .then(res => res.json())
     .then(data => {
         console.log(data)
+        renderArtworks(data);
+    });
+
+    function renderArtworks(data) {
+        const artworkContainer = document.getElementById("artwork-container");
+        artworkContainer.innerHTML = ""; // Clear previous content
         data.forEach(artwork => {
-            renderArtwork(artwork)
+            renderArtwork(artwork);
         });
-    })
+    }
 
     function renderArtwork(data){
+        let Price = data.price.toLocaleString();
         let card = document.createElement("div");
         card.className = 'card';
         card.innerHTML = `
@@ -28,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     <h2>${data.title}</h2>
                     <p class="art-data"><em>${data.artist}</em></p>
                     <p class="art-data">${data.description}</p>
-                    <p class="art-data" id="artPrice"><b>Price: ${data.price}</b></p>
+                    <p class="art-data" id="artPrice"><b>Price: $${Price}</b></p>
                     <p class="art-data" id="copiesLeft">Copies Left: ${data.copies_left}</p>
                     <div class="buttons">
                         <button class="buy-button" id="buy-button">Buy Art</button>
@@ -41,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let artworkContainer = document.getElementById("artwork-container");
         artworkContainer.appendChild(card);
 
-        // Add event listener to each buy button
+        // Buy button click handler
         let buyBtn = card.querySelector(".buy-button");
         let copiesLeft = data.copies_left;
         if (copiesLeft === 0) {
@@ -64,12 +71,12 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
 
-        // Add event listener to each delete button
+        // Delete button click event handler
         let deleteBtn = card.querySelector(".delete-button");
         deleteBtn.addEventListener('click', () => {
             let artworkId = deleteBtn.getAttribute('data-artwork-id');
             deleteArtwork(artworkId);
-            card.remove(); // Remove the card from the DOM
+            card.remove(); 
         });
     }
 
@@ -88,18 +95,16 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     }
 
-    function mainFetcher(){
-        return fetch(fetchAPI,{
+    async function mainFetcher(){
+        const res = await fetch(fetchAPI, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             }
-        })
-        .then(res => res.json())
-        .then(data =>{
-            return data;
         });
+        const data = await res.json();
+        return data;
     }
 
     function deleteArtwork(artworkId){
@@ -115,4 +120,32 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log(data);
         })
     }
+
+    // Framework for filter dropdown
+    const filterDropdown = document.getElementById("filter");
+    filterDropdown.addEventListener("change", function() {
+        const selectedFilter = this.value;
+        let sortedData = [];
+        let artworks = mainFetcher()
+        .then(artwork => {
+             console.log(artwork);
+             switch(selectedFilter) {
+                 case 'name_asc':
+                     sortedData = artwork.sort((a, b) => a.title.localeCompare(b.title));
+                     break;
+                 case 'name_desc':
+                     sortedData = artwork.sort((a, b) => b.title.localeCompare(a.title));
+                     break;
+                 case 'price_asc':
+                     sortedData = artwork.sort((a, b) => a.price - b.price);
+                     break;
+                 case 'price_desc':
+                     sortedData = artwork.sort((a, b) => b.price - a.price);
+                     break;
+             }
+             renderArtworks(sortedData);
+         });
+
+
+    });
 });
