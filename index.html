@@ -22,7 +22,8 @@
                     <a href="#">About</a>
                     <a href="#">Services</a>
                     <a href="#">Contact</a>
-                    <a href="#">Login</a>
+                    
+
                 </nav>
             </div>
         </header>
@@ -46,12 +47,19 @@
                 </p>
                 
                 <h2>All Artwork</h2>
-                <select id="filter">
-                    <option value="name_asc">Name(Ascending)</option>
-                    <option value="name_desc">Name(Descending)</option>
-                    <option value="price_asc">Price(Ascending)</option>
-                    <option value="price_desc">Price(Descending)</option>
-                </select>
+                <div class="search-container">
+                    <form action="">
+                <input type="text" id="search" placeholder="Search title or artist..."/>
+            </form>
+        </div>
+        
+        <select id="filter">
+            <option value="name_asc">Name(Ascending)</option>
+            <option value="name_desc">Name(Descending)</option>
+            <option value="price_asc">Price(Ascending)</option>
+            <option value="price_desc">Price(Descending)</option>
+        </select>
+        <h3 id="error-message" style="color: red; display:none;">The searched title or artist cannot be found.</h3>
                 <div id="artwork-container">
                 <h3 id="art-title"></h2>
                 <h4 id="artist"></h2>

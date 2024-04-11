@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     const fetchAPI = "http://localhost:3000/artwork"
     const artworkID = 1
+    filteredData = [];
     
     fetch("http://localhost:3000/artwork",{
         method: "GET",
@@ -18,13 +19,14 @@ document.addEventListener("DOMContentLoaded", function(){
     function renderArtworks(data) {
         const artworkContainer = document.getElementById("artwork-container");
         artworkContainer.innerHTML = ""; // Clear previous content
-        data.forEach(artwork => {
+         data.map(artwork => {
             renderArtwork(artwork);
         });
     }
 
     function renderArtwork(data){
-        let Price = data.price.toLocaleString();
+        
+        const price = data.price.toLocaleString();
         let card = document.createElement("div");
         card.className = 'card';
         card.innerHTML = `
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     <h2>${data.title}</h2>
                     <p class="art-data"><em>${data.artist}</em></p>
                     <p class="art-data">${data.description}</p>
-                    <p class="art-data" id="artPrice"><b>Price: $${Price}</b></p>
+                    <p class="art-data" id="artPrice"><b>Price: $${price}</b></p>
                     <p class="art-data" id="copiesLeft">Copies Left: ${data.copies_left}</p>
                     <div class="buttons">
                         <button class="buy-button" id="buy-button">Buy Art</button>
@@ -148,4 +150,47 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     });
+
+    
+    
+
+    function fetchArtwork() {
+        return fetch(fetchAPI,{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data =>{
+            return data;
+        });
+    }
+    
+    // Function to handle search
+    function handleSearch(query) {
+        fetchArtwork().then(data => {
+            const filteredData = data.filter(artwork => artwork.title.toLowerCase().includes(query.toLowerCase()) || artwork.artist.toLowerCase().includes(query.toLowerCase()));
+            renderArtworks(filteredData);
+            const artworkContainer = document.getElementById("artwork-container");
+            const errStatement = document.getElementById("error-message");
+            if (artworkContainer.innerHTML === "") {
+                errStatement.style.display = "block";
+            } else {
+                errStatement.style.display = "none";
+            }
+        });
+    }
+    
+    // Event listener for input event on search input
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", function() {
+        const searchQuery = this.value.trim();
+        handleSearch(searchQuery);
+    });
+    
 });
+
+
+

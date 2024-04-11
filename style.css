@@ -37,10 +37,7 @@ header{
     transition: background-color 0.5s ease-in-out
 }
 
-header.scrolled{
-    position: sticky;
-    background: white;
-}
+
 
 .logo{
     width: 30%;
@@ -82,7 +79,7 @@ nav a:hover{
 
 
 .banner-area{
-    background-image: url(./assets/newbbrnplaceholder.mov);
+    background-image: url(./assets/thebest.mp4);
     background-size: cover;
     background-position: center center;
     top: 100px;
@@ -140,46 +137,7 @@ nav a:hover{
 }
 
 
-.center{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-}
 
-.center a{
-    color: brown;
-    text-decoration: none;
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
-.center a:hover{
-    color: black;
-}
-.wrapperex{
-  display: flex;
-  justify-content: center;
-
-  
-}
-
-.wrapperex i{
-    text-decoration: none;
-    padding: 20px;
-    margin: 10px;
-    color: brown; 
-}
-
-.wrapperex a:hover{
-    color: brown;
-    transition: 0.5s;
-}
-
-.wrapperex a:hover i{
-    color: black;
-    transition: 0.5s;
-}
 
 .artwork-container{
     padding-top: 0%;
@@ -317,4 +275,11 @@ input:checked + label:after{
 .delete-button:hover{
     background-color: red;
     transition: 0.3s;
+}
+
+#search{
+    visibility: visible !important;
+    width: 200px;
+    height: 20%;
+    border-radius: 4px;
 }

@@ -6,7 +6,7 @@
       "artist": "Vincent Van Gogh",
       "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2sQXmvsQVIyKx6epFj1pL0wl5WikTFi1QPb8dudCU3w&s",
       "description": "The Starry Night is one of Van Gogh's most famous masterpieces, known for its swirling clouds and bright stars.",
-      "price": 100000,
+      "price": 500000,
       "copies_left": 5
     },
     {
@@ -78,7 +78,7 @@
       "artist": "Claude Monet",
       "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQq2jmPEpSeODjjkXBa7XXpNXr4a1-kAy9RQ&s",
       "description": "Water Lilies is a series of Impressionist paintings by Monet, capturing the beauty of his garden pond.",
-      "price": 125000,
+      "price": 400000,
       "copies_left": 2
     },
     {
