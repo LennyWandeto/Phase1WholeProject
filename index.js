@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function(){
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Authorization": "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"
         }
     })
     .then(res => res.json())
@@ -87,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function(){
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Authorization": "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"
             },
             body: JSON.stringify(artwork)
         })
@@ -114,7 +116,8 @@ document.addEventListener("DOMContentLoaded", function(){
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Authorization": "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"
             }
         })
         .then(res => res.text())
@@ -159,7 +162,8 @@ document.addEventListener("DOMContentLoaded", function(){
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Authorization": "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",
             }
         })
         .then(res => res.json())
