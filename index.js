@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const fetchAPI = "http://localhost:3000/artwork"
+    const fetchAPI = "https://lennywandeto.github.io/Phase1WholeProject/db.json"
     const artworkID = 1
     filteredData = [];
     
-    fetch("http://localhost:3000/artwork",{
+    fetch("https://lennywandeto.github.io/Phase1WholeProject/db.json",{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
