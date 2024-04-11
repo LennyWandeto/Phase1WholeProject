@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const fetchAPI = "https://lennywandeto.github.io/Phase1WholeProject/db.json"
+    const fetchAPI = "http://localhost:3000/artwork"
     const artworkID = 1
     
-    fetch("https://lennywandeto.github.io/Phase1WholeProject/db.json",{
+    fetch("http://localhost:3000/artwork",{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function renderArtworks(data) {
         const artworkContainer = document.getElementById("artwork-container");
         artworkContainer.innerHTML = ""; // Clear previous content
-        data.data.forEach(artwork => {
+        data.forEach(artwork => {
             renderArtwork(artwork);
         });
     }
