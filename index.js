@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function renderArtworks(data) {
         const artworkContainer = document.getElementById("artwork-container");
         artworkContainer.innerHTML = ""; // Clear previous content
-        data.forEach(artwork => {
+        data.data.forEach(artwork => {
             renderArtwork(artwork);
         });
     }
