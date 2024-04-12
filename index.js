@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     const fetchAPI = "http://localhost:3000/artwork"
-    const artworkID = 1
+    
     filteredData = [];
     
     fetch("http://localhost:3000/artwork",{
