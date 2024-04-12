@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function(){
     // First GET request to render all artwork.
     mainFetcher()
     .then(data => {
-        console.log(data)
         renderArtworks(data);
     });
     
