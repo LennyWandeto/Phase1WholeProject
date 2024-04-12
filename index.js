@@ -1,35 +1,46 @@
+// The start of code only when the DOM content is loaded.
 document.addEventListener("DOMContentLoaded", function(){
+    // Defining the API to be used later
     const fetchAPI = "http://localhost:3000/artwork"
-    
     filteredData = [];
     
-    fetch("http://localhost:3000/artwork",{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "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"
-        }
-    })
-    .then(res => res.json())
+    // Async function for fetching data from API.
+    async function mainFetcher(){
+        const res = await fetch(fetchAPI, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        });
+        const data = await res.json();
+        return data;
+    }
+    // First GET request to render all artwork.
+    mainFetcher()
     .then(data => {
         console.log(data)
         renderArtworks(data);
     });
-
+    
+    //Main function for all artwork.
     function renderArtworks(data) {
         const artworkContainer = document.getElementById("artwork-container");
-        artworkContainer.innerHTML = ""; // Clear previous content
+        artworkContainer.innerHTML = ""; // Clear previous content.
          data.map(artwork => {
             renderArtwork(artwork);
         });
     }
 
+    // Function for each artwork to be rendered as a card.
     function renderArtwork(data){
         
+        // This price constant is important for making sure that the price can be read as a number in the filter.
         const price = data.price.toLocaleString();
+
         let card = document.createElement("div");
         card.className = 'card';
+        // Pure inner HTML for how each card is rendered.
         card.innerHTML = `
         <div class="card-container">
             <div class="card-body">
@@ -51,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let artworkContainer = document.getElementById("artwork-container");
         artworkContainer.appendChild(card);
 
-        // Buy button click handler
+        // Buy button click handler.
         let buyBtn = card.querySelector(".buy-button");
         let copiesLeft = data.copies_left;
         if (copiesLeft === 0) {
@@ -74,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
 
-        // Delete button click event handler
+        // Delete button click event handler.
         let deleteBtn = card.querySelector(".delete-button");
         deleteBtn.addEventListener('click', () => {
             let artworkId = deleteBtn.getAttribute('data-artwork-id');
@@ -82,14 +93,15 @@ document.addEventListener("DOMContentLoaded", function(){
             card.remove(); 
         });
     }
-
+    
+    // Buy Artwork Patch function.
     function buyArtwork(artwork){
         fetch(`${fetchAPI}/${artwork.id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": "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"
+                
             },
             body: JSON.stringify(artwork)
         })
@@ -98,26 +110,15 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log(data);
         })
     }
-
-    async function mainFetcher(){
-        const res = await fetch(fetchAPI, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        });
-        const data = await res.json();
-        return data;
-    }
-
+    
+    // Function for deleting artwork when button is clicked.
     function deleteArtwork(artworkId){
         fetch(`${fetchAPI}/${artworkId}`,{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": "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"
+                
             }
         })
         .then(res => res.text())
@@ -126,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     }
 
-    // Framework for filter dropdown
+    // Framework for filter dropdown.
     const filterDropdown = document.getElementById("filter");
     filterDropdown.addEventListener("change", function() {
         const selectedFilter = this.value;
@@ -153,28 +154,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     });
-
-    
-    
-
-    function fetchArtwork() {
-        return fetch(fetchAPI,{
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "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",
-            }
-        })
-        .then(res => res.json())
-        .then(data =>{
-            return data;
-        });
-    }
-    
+    // Event listener for input event on search input.
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", function() {
+        const searchQuery = this.value.trim();
+        handleSearch(searchQuery);
+    });
+  
     // Function to handle search
     function handleSearch(query) {
-        fetchArtwork().then(data => {
+        mainFetcher().then(data => {
             const filteredData = data.filter(artwork => artwork.title.toLowerCase().includes(query.toLowerCase()) || artwork.artist.toLowerCase().includes(query.toLowerCase()));
             renderArtworks(filteredData);
             const artworkContainer = document.getElementById("artwork-container");
@@ -186,14 +175,6 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
     }
-    
-    // Event listener for input event on search input
-    const searchInput = document.getElementById("search");
-    searchInput.addEventListener("input", function() {
-        const searchQuery = this.value.trim();
-        handleSearch(searchQuery);
-    });
-    
 });
 
 

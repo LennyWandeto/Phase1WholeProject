@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfected Art™</title>
+
+    <!-- Connection to the CSS file. -->
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -13,6 +15,8 @@
     <div class="box-area">
         <header>
             <div class="wrapper">
+
+                <!-- Top navbar for the page. -->
                 <div class="logo">
                     <a href="#"> Perfected Art™</a>
                 </div>
@@ -22,22 +26,29 @@
                     <a href="#">About</a>
                     <a href="#">Services</a>
                     <a href="#">Contact</a>
-                    
+
 
                 </nav>
             </div>
         </header>
+        
 
+        <!-- Banner text for where the video is playing. -->
         <div class="banner-area">
-            <h2><p>Art is perfection.</p>
-                Perfection is art.</h2>
+            <h2>
+                <p>Art is perfection.</p>
+                Perfection is art.
+            </h2>
         </div>
 
+        <!-- Main content area div class. -->
         <div class="content-area">
             <div class="wrapper">
-                <input type="checkbox" id="darkmode-toggle"/>
+
+                <!-- Dark mode/Light Mode toggle. -->
+                <input type="checkbox" id="darkmode-toggle" />
                 <label for="darkmode-toggle"></label>
-               
+
                 <h2> Perfected Art™</h2>
                 <p>
                     Greatness is defined by the very people who are agitated by not having it. And truly it is well said
@@ -45,43 +56,49 @@
                     Perfection is seeked, refined and excelled in the best way possible. <b>That is how you become
                         great.</b>
                 </p>
-                
+
                 <h2>All Artwork</h2>
+
+                <!-- Main container for the search. -->
                 <div class="search-container">
                     <form action="">
-                <input type="text" id="search" placeholder="Search title or artist..."/>
-            </form>
-        </div>
-        
-        <select id="filter">
-            <option value="name_asc">Name(Ascending)</option>
-            <option value="name_desc">Name(Descending)</option>
-            <option value="price_asc">Price(Ascending)</option>
-            <option value="price_desc">Price(Descending)</option>
-        </select>
-        <h3 id="error-message" style="color: red; display:none;">The searched title or artist cannot be found.</h3>
+                        <input type="text" id="search" placeholder="Search title or artist..." />
+                    </form>
+                </div>
+
+                <!-- Main container for the filter method. -->
+                <select id="filter">
+                    <option value="name_asc">Name(Ascending)</option>
+                    <option value="name_desc">Name(Descending)</option>
+                    <option value="price_asc">Price(Ascending)</option>
+                    <option value="price_desc">Price(Descending)</option>
+                </select>
+
+                <!-- Error message in the case that the search. -->
+                <h3 id="error-message" style="color: red; display:none;">The searched title or artist cannot be found.
+                </h3>
+
+                <!-- Container where all artwork will be appended to the DOM. -->
                 <div id="artwork-container">
-                <h3 id="art-title"></h2>
-                <h4 id="artist"></h2>
-                <div class="artwork" id="artwork">
 
                 </div>
-                
-                
-                </div>
-                    
 
-                
+
             </div>
         </div>
     </div>
+    </div>
+
+    <!-- Small line of script for Dark Mode/Light Mode toggle -->
     <script>
         const toggle = document.getElementById("darkmode-toggle");
-        toggle.addEventListener("click", function(){
+        toggle.addEventListener("click", function () {
             document.body.classList.toggle("dark-theme");
         })
     </script>
 
-  <script src="./index.js"></script>
+    <!-- Connection to the main JavaScript file for functionality.-->
+    <script src="./index.js"></script>
 </body>
+
 </html>
